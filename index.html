@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur de Sommeil</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculateur de Sommeil</h1>
+      <p class="subtitle">Calculez votre temps de sommeil idéal</p>
+
+      <div class="calculator">
+        <div class="time-input">
+          <h3>Heure du coucher :</h3>
+          <div class="time-selector">
+            <button id="bedHourDown">-</button>
+            <span id="bedHour">22</span>h
+            <button id="bedHourUp">+</button>
+
+            <button id="bedMinuteDown">-</button>
+            <span id="bedMinute">00</span>
+            <button id="bedMinuteUp">+</button>
+
+            <select id="bedAmPm">
+              <option value="PM">PM</option>
+              <option value="AM">AM</option>
+            </select>
+            <span id="bedNoonIndicator" class="noon-indicator"></span>
+          </div>
+        </div>
+
+        <div class="time-input">
+          <h3>Heure du réveil :</h3>
+          <div class="time-selector">
+            <button id="wakeHourDown">-</button>
+            <span id="wakeHour">06</span>h
+            <button id="wakeHourUp">+</button>
+
+            <button id="wakeMinuteDown">-</button>
+            <span id="wakeMinute">00</span>
+            <button id="wakeMinuteUp">+</button>
+
+            <select id="wakeAmPm">
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+            </select>
+            <span id="wakeNoonIndicator" class="noon-indicator"></span>
+          </div>
+        </div>
+
+        <button id="calculate">Calculer</button>
+
+        <div id="result" class="result">
+          <p>Durée du sommeil : <span id="sleepDuration">-</span></p>
+          <p>Cycles de sommeil (90 min) : <span id="sleepCycles">-</span></p>
+          <p>Recommandation : <span id="recommendation">-</span></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/main.js"></script>
+  </body>
+</html>
