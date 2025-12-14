@@ -1,3 +1,7 @@
+import hello from "./doc.js";
+
+hello()
+
 document.addEventListener("DOMContentLoaded", function () {
   const bedHourElement = document.getElementById("bedHour");
   const bedMinuteElement = document.getElementById("bedMinute");
@@ -122,19 +126,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // Calculer le nombre de cycles de sommeil (1 cycle = 90 minutes)
     const cycles = (durationMinutes / 90).toFixed(1);
 
+    console.log((durationMinutes / 90).toFixed(0));
+
     // Déterminer la recommandation
     let recommendation = "";
-    if (durationMinutes < 5 * 60) {
+    if (durationMinutes <= 5 * 60) {
       recommendation =
         "Temps de sommeil très insuffisant. Essayez de dormir plus longtemps pour une meilleure santé.";
-    } else if (durationMinutes < 6 * 60) {
+    } else if (durationMinutes <= 6 * 60) {
       recommendation =
         "Temps de sommeil insuffisant. Un adulte a besoin de 7 à 9 heures de sommeil par nuit.";
     } else if (durationMinutes <= 9 * 60) {
       recommendation = "Temps de sommeil idéal. Continuez ainsi !";
     } else {
       recommendation =
-        "Temps de sommeil suffisant, mais attention à ne pas trop dormir non plus.";
+        "Temps de sommeil suffisant, même trop";
     }
 
     // Afficher les résultats

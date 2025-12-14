@@ -38,3 +38,4 @@
 - Keep related files together in feature directories
 - Use kebab-case for file names
 - Separate assets (CSS, images) into dedicated folders
+- Have fun
