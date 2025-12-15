@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
       optimizationElement.style.display = "block";
     } else {
       // Cacher la section d'optimisation si non nécessaire
-      optimizationElement.innerHTML = `Votre cycle de sommeil est parfait`;
+      optimizationElement.style.display = "none";
     }
 
     // Afficher la section des résultats
