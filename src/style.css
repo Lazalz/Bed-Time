@@ -1,10 +1,14 @@
-:root {
-  --primary-color: #2a2438;
+ :root {
+  --primary-color: #420bc4;
+  --secondary-color: #3307a1;
+  --third-color: #23056e;
+  --light-color: #e6e4ec;
+} 
 
-  --secondary-color: #352f44;
-  --third-color: #5c5470;
-  --light-color: #dbd8e3;
-}
+
+
+
+
 
 /* Reset et styles de base */
 * {
@@ -18,13 +22,12 @@ body {
   background-color: var(--light-color);
   color: black;
   line-height: 1.6;
-  padding: 20px;
 }
 
 .container {
-  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px ;
+  padding-bottom: 50px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -73,13 +76,13 @@ h1 {
 }
 
 button {
-  border: 1px solid var(--primary-color);
+  border: 1px solid;
   border-radius: 5px;
-  padding: 8px 12px;
+  padding: 8px 5px;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 40px;
+  min-width: 30px;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
 }
@@ -174,13 +177,11 @@ select {
 
 /* Style pour les appareils mobiles */
 @media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
+ 
 
   .container {
     padding: 12px;
-    max-width: 100%;
+    padding-bottom: 50px;
     box-sizing: border-box;
   }
 
