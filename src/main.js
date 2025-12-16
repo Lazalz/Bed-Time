@@ -1,6 +1,3 @@
-import hello from "./doc.js";
-
-hello();
 
 document.addEventListener("DOMContentLoaded", function () {
   const bedHourElement = document.getElementById("bedHour");
@@ -12,36 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultElement = document.getElementById("result");
 
   // Valeurs initiales
-  let bedHour = 22;
+  let bedHour = 10;
   let bedMinute = 0;
   let wakeHour = 6;
   let wakeMinute = 0;
-
-  // Mise à jour de l'affichage
-  function updateDisplay() {
-    // Mise à jour des heures et minutes
-    bedHourElement.textContent = bedHour.toString().padStart(2, "0");
-    bedMinuteElement.textContent = bedMinute.toString().padStart(2, "0");
-    wakeHourElement.textContent = wakeHour.toString().padStart(2, "0");
-    wakeMinuteElement.textContent = wakeMinute.toString().padStart(2, "0");
-
-    // Mise à jour des indicateurs de midi/minuit
-    updateNoonIndicator("bed");
-    updateNoonIndicator("wake");
-  }
-
-  // Indicateur de midi / minuit
-  function updateNoonIndicator(type) {
-    const hour = type === "bed" ? bedHour : wakeHour;
-    const ampm = document.getElementById(`${type}AmPm`).value;
-    const indicator = document.getElementById(`${type}NoonIndicator`);
-
-    if (hour === 12) {
-      indicator.textContent = ampm === "AM" ? "minuit" : "midi";
-    } else {
-      indicator.textContent = "";
-    }
-  }
 
   // Increment hour
   document.getElementById("bedHourUp").addEventListener("click", () => {
@@ -92,6 +63,32 @@ document.addEventListener("DOMContentLoaded", function () {
     wakeMinute = wakeMinute === 0 ? 55 : wakeMinute - 5;
     updateDisplay();
   });
+
+  // Mise à jour de l'affichage
+  function updateDisplay() {
+    // Mise à jour des heures et minutes
+    bedHourElement.textContent = bedHour.toString().padStart(2, "0");
+    bedMinuteElement.textContent = bedMinute.toString().padStart(2, "0");
+    wakeHourElement.textContent = wakeHour.toString().padStart(2, "0");
+    wakeMinuteElement.textContent = wakeMinute.toString().padStart(2, "0");
+
+    // Mise à jour des indicateurs de midi/minuit
+    updateNoonIndicator("bed");
+    updateNoonIndicator("wake");
+  }
+
+  // Indicateur de midi / minuit
+  function updateNoonIndicator(type) {
+    const hour = type === "bed" ? bedHour : wakeHour;
+    const ampm = document.getElementById(`${type}AmPm`).value;
+    const indicator = document.getElementById(`${type}NoonIndicator`);
+
+    if (hour === 12) {
+      indicator.textContent = ampm === "AM" ? "minuit" : "midi";
+    } else {
+      indicator.textContent = "";
+    }
+  }
 
   // Fonction utilitaire pour formater les minutes en heures:minutes
   function formatTimeFromMinutes(totalMinutes) {
@@ -225,15 +222,16 @@ document.addEventListener("DOMContentLoaded", function () {
       // Afficher les suggestions d'optimisation
       optimizationWakeTimeElement.innerHTML = `• <strong>Option 1</strong> :  Pour <strong>${optimization.cycles} cycles complets</strong>, réveillez-vous à <strong>${optimization.optimizedWakeTime}</strong> en gardant la même heure de coucher.`;
 
-      // Vérifier si l'heure de coucher optimisée est valide (pas négative)
-      const optimizedBedTimeMins = wakeTotalMinutes - optimization.cycles * 90;
-      if (optimizedBedTimeMins >= 0) {
-        optimizationBedTimeElement.innerHTML = `• <strong>Option 2</strong> : Pour <strong>${optimization.cycles} cycles complets</strong>, couchez-vous à <strong>${optimization.optimizedBedTime}</strong> pour vous réveiller à l'heure prévue.`;
-      } else {
-        // Si l'heure de coucher optimisée est négative, suggérer de se coucher plus tôt
-        const adjustedBedTime = formatTimeFromMinutes(bedTotalMinutes - 30); // 30 minutes plus tôt
-        optimizationBedTimeElement.innerHTML = `• Pour un meilleur sommeil, essayez de vous coucher vers <strong>${adjustedBedTime}</strong> pour compléter plus de cycles.`;
-      }
+       // Vérifier si l'heure de coucher optimisée est valide (pas négative)
+       const optimizedBedTimeMins = wakeTotalMinutes - optimization.cycles * 90;
+       if (optimizedBedTimeMins >= 0) {
+         optimizationBedTimeElement.innerHTML = `• <strong>Option 2</strong> : Pour <strong>${optimization.cycles} cycles complets</strong>, couchez-vous à <strong>${optimization.optimizedBedTime}</strong> pour vous réveiller à l'heure prévue.`;
+       } else {
+         // Si l'heure de coucher optimisée est négative, calculer combien de temps plus tôt se coucher
+         const deficitMinutes = Math.abs(optimizedBedTimeMins);
+         const adjustedBedTime = formatTimeFromMinutes(bedTotalMinutes - deficitMinutes);
+         optimizationBedTimeElement.innerHTML = `• Pour <strong>${optimization.cycles} cycles complets</strong>, couchez-vous à <strong>${adjustedBedTime}</strong> (soit ${deficitMinutes} minutes plus tôt) pour vous réveiller à l'heure prévue.`;
+       }
 
       optimizationElement.style.display = "block";
     } else {

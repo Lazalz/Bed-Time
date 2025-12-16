@@ -1,14 +1,11 @@
- :root {
+@import "article.css";
+
+:root {
   --primary-color: #420bc4;
   --secondary-color: #3307a1;
   --third-color: #23056e;
   --light-color: #e6e4ec;
-} 
-
-
-
-
-
+}
 
 /* Reset et styles de base */
 * {
@@ -19,18 +16,17 @@
 }
 
 body {
-  background-color: var(--light-color);
   color: black;
   line-height: 1.6;
 }
 
 .container {
   margin: 0 auto;
-  padding: 20px ;
+  padding: 20px;
   padding-bottom: 50px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
 }
 
 h1 {
@@ -177,8 +173,6 @@ select {
 
 /* Style pour les appareils mobiles */
 @media (max-width: 600px) {
- 
-
   .container {
     padding: 12px;
     padding-bottom: 50px;

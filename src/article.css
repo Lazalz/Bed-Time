@@ -1,0 +1,90 @@
+/* Style simple avec cadres pour les articles */
+
+.sleep-article {
+  max-width: 100%;
+  width: 100%;
+  margin-top: 50px;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.article-header {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.article-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.article-subtitle {
+  color: #666;
+  margin: 0;
+}
+
+.article-section {
+  margin-top: 1.5rem;  
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #370071;
+  border-radius: 2px;
+  background-color: #f7f7f7;
+}
+
+.article-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.article-section p {
+  margin: 1rem 0;
+}
+
+.sleep-cycle,
+.variations,
+.tip-box {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #e0e0e0;
+  background-color: #fafafa;
+}
+
+.tip-box {
+  border-left: 3px solid #4caf50;
+  background-color: #f5f9f5;
+}
+
+ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Style pour les écrans mobiles */
+@media (max-width: 768px) {
+  .sleep-article {
+    margin: 0;
+  }
+
+  .article-section,
+  .sleep-cycle,
+  .variations,
+  .tip-box {
+    padding: 0.8rem;
+  }
+
+  .article-section{
+    margin-top: 40px;
+  }
+}
