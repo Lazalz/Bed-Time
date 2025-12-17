@@ -234,6 +234,8 @@ document.addEventListener("DOMContentLoaded", function () {
        }
 
       optimizationElement.style.display = "block";
+      setTimeout(() => optimizationElement.classList.add("show"), 10);
+      setTimeout(() => optimizationElement.classList.add("show"), 10);
     } else {
       // Cacher la section d'optimisation si non nécessaire
       optimizationElement.style.display = "none";
@@ -241,6 +243,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Afficher la section des résultats
     resultElement.style.display = "block";
+    setTimeout(() => resultElement.classList.add("show"), 10);
+    setTimeout(() => resultElement.classList.add("show"), 10);
   }
 
   // Événement pour le bouton de calcul
