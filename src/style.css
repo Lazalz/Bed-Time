@@ -1,11 +1,11 @@
 @import "article.css";
 
 :root {
-  --bg: #000;
+  --bg: #1c1727;
   --fg: #dfe1e6;
-  --black: #000;
+  --black: #16131f;
   --red: #ff6900;
-  --green: #1da1f2;
+  --green: #1df2c448;
   --yellow: #ffc107;
   --blue: #4b8bf6;
   --magenta: #f08a5d;
@@ -16,7 +16,7 @@
   --primary-color: var(--blue);
   --secondary-color: var(--magenta);
   --third-color: var(--green);
-  --light-color: var(--black);
+  --light-color: #1c1727;
 }
 
 /* Reset et styles de base */
@@ -42,10 +42,9 @@ body {
 }
 
 h1 {
-  color: var(--primary-color);
   text-align: center;
-  margin-bottom: 10px;;
-  font-family: 'Titillium Web', sans-serif;
+  margin-bottom: 10px;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .subtitle {
@@ -68,7 +67,6 @@ h1 {
   background-color: var(--bg);
   padding: 15px;
   border-radius: 8px;
-  border: 1px solid var(--gray);
 }
 
 .time-input h3 {
@@ -89,7 +87,7 @@ h1 {
 button {
   background-color: var(--black);
   color: var(--fg);
-  border: 1px solid white;
+  border: 1px solid var(--bg);
   border-radius: 8px;
   padding: 10px 12px;
   font-size: 16px;
@@ -101,8 +99,8 @@ button {
 }
 
 button:hover {
-  background-color: var(--gray);
-  color: black;
+  background-color: var(--black);
+  color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -121,7 +119,8 @@ button:hover {
   color: var(--bg);
   padding: 12px;
   margin: 20px 0;
-  background-color: var(--third-color);
+  background-color: var(--green);
+  color: white;
   font-size: 18px;
   font-weight: bold;
   border: none;
@@ -137,13 +136,11 @@ button:hover {
   min-width: 40px;
   text-align: center;
   display: inline-block;
-  color: var(--cyan);
 }
 
 select {
   padding: 8px 25px 8px 10px;
   border-radius: 5px;
-  border: 1px solid var(--gray);
   background-color: var(--bg);
   color: var(--fg);
   font-size: 16px;
@@ -202,7 +199,7 @@ select {
 }
 
 #sleepDuration {
-  color: var(--green);
+  color: var(--red);
 }
 
 #sleepCycles {
